@@ -32,7 +32,7 @@ class UsersController extends \BaseController {
 	public function store()
 	{
 		$rules = [
-				
+				'email_address' => 'required'
 		];
 		$validator = Validator::make($data = Input::all(), $rules);
 
