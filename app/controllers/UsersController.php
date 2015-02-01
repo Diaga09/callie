@@ -32,7 +32,9 @@ class UsersController extends \BaseController {
 	public function store()
 	{
 		$rules = [
-				'email_address' => 'required'
+				'email_address' => 'required|email|exists:users, email',
+				'password'	=>	'required|min:3|alpha_dash|confirmed',
+				'password_confirmation' => 'required'
 		];
 		$validator = Validator::make($data = Input::all(), $rules);
 
